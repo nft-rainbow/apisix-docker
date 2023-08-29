@@ -2,3 +2,6 @@
 .DS_Store
 ./package
 !compose/apisix_log/.gitkeep
+go-runner
+docker-compose-raw.yml
+config-default.yaml
