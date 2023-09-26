@@ -49,7 +49,7 @@ services:
       - "9443:9443/tcp"
       - "9092:9092/tcp"
       - "9898:9898/tcp"
-      - "443:9443/tcp"
+      # - "443:9443/tcp"
     networks:
       apisix:
 
