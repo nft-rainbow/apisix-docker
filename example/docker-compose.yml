@@ -36,7 +36,8 @@ services:
     #   - APISIX_CONF_EXPIRE_TIME=3600
     volumes:
       - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
-      - ./apisix_conf/go-runner:/usr/local/apisix-go-plugin-runner/go-runner
+      - ./apisix_conf/apisix-go-plugin-runner/go-runner:/usr/local/apisix-go-plugin-runner/go-runner
+      - ./apisix_conf/apisix-go-plugin-runner/config.yaml:/usr/local/apisix-go-plugin-runner/config.yaml
       # - /tmp/runner.sock:/tmp/runner.sock
     depends_on:
       - etcd
@@ -79,18 +80,6 @@ services:
   #   networks:
   #     apisix:
 
-  # web2:
-  #   image: nginx:1.19.0-alpine
-  #   restart: always
-  #   volumes:
-  #     - ./upstream/web2.conf:/etc/nginx/nginx.conf
-  #   ports:
-  #     - "9082:80/tcp"
-  #   environment:
-  #     - NGINX_PORT=80
-  #   networks:
-  #     apisix:
-
   # prometheus:
   #   image: prom/prometheus:v2.25.0
   #   restart: always
@@ -113,13 +102,13 @@ services:
   #   networks:
   #     apisix:
     
-  redis:
-    image: redis:7.2-rc3
-    restart: always
-    ports:
-      - "6379:6379"
-    networks:
-      apisix:
+  # redis:
+  #   image: redis:7.2-rc3
+  #   restart: always
+  #   ports:
+  #     - "6379:6379"
+  #   networks:
+  #     apisix:
 
 networks:
   apisix:
