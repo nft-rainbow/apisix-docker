@@ -5,3 +5,4 @@
 go-runner
 docker-compose-raw.yml
 config-default.yaml
+apisix-go-plugin-runner
